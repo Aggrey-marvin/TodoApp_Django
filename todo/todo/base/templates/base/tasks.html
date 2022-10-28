@@ -1,0 +1,16 @@
+<h1>Todos</h1>
+
+<div class="container">
+  {% for task in  tasks %}
+    <div>
+      {{task.title}}
+      <a href="{% url 'completeTask' task.id %}">Complete</a>
+      <a href="{% url 'editTask' task.id %}">Edit</a>
+    </div>
+  {% empty %}
+    <div>
+      <h4>No Tasks Yet</h4>
+    </div>
+  {% endfor %}
+  <a href="{% url 'addTask' %}">Add Task</a>
+</div>
